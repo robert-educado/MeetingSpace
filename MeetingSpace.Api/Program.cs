@@ -10,9 +10,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-var rooms = new List<MeetingRooms>();
 
-app.MapGet("/api/rooms", () =>
-  Results.Ok(rooms));
+
+app.MapGet("/api/rooms", async (ApplicationDbContext db) =>
+{
+  var rooms = await db.MeetingRooms.ToListAsync();
+
+  return Results.Ok(rooms);
+});
 
 app.Run();
