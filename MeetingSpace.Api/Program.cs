@@ -1,12 +1,18 @@
+using MeetingSpace.Api.Models;
+using MeetingSpace.Api.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+  options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+var rooms = new List<MeetingRooms>();
 
-app.UseHttpsRedirection();
+app.MapGet("/api/rooms", () =>
+  Results.Ok(rooms));
 
 app.Run();
-
