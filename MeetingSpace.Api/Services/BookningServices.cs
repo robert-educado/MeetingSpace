@@ -1,11 +1,11 @@
 using Booknings.Model;
 using MeetingSpace.Api.Data;
 using Microsoft.EntityFrameworkCore;
-namespace Bookning.Services;
-public class BookningService
+namespace BookningServices;
+public class BookningsService
 {
     private readonly ApplicationDbContext db;
-    public BookningService(ApplicationDbContext db)
+    public BookningsService(ApplicationDbContext db)
     {
         db = db;
     }
