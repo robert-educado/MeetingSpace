@@ -1,3 +1,4 @@
+
 namespace Booknings.Model;
 public class Bookning
 {

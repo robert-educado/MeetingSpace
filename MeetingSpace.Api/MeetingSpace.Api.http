@@ -1,6 +1,6 @@
-@MeetingSpace.Api_HostAddress = http://localhost:5048
+@MeetingSpace.Api_HostAddress = https://localhost:8000
 
-GET {{MeetingSpace.Api_HostAddress}}/weatherforecast/
+GET {{MeetingSpace.Api_HostAddress}}/api/rooms/
 Accept: application/json
 
 ###
